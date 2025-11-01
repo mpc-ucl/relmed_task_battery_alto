@@ -119,24 +119,24 @@ jsPsychCardChoosing = (function (jspsych) {
             coin_images: {
                 type: jspsych.ParameterType.OBJECT,
                 default: {
-                    0.01: "./assets/images/card-choosing/outcomes/1penny.png",
-                    1.0: "./assets/images/card-choosing/outcomes/1pound.png",
-                    0.5: "./assets/images/card-choosing/outcomes/50pence.png",
-                    "-0.01": "./assets/images/card-choosing/outcomes/1pennybroken.png",
-                    "-1": "./assets/images/card-choosing/outcomes/1poundbroken.png",
-                    "-0.5": "./assets/images/card-choosing/outcomes/50pencebroken.png"
+                    1.0: "./assets/images/card-choosing/outcomes/1point.png",
+                    2.0: "./assets/images/card-choosing/outcomes/2points.png",
+                    5.0: "./assets/images/card-choosing/outcomes/5points.png",
+                    10.0: "./assets/images/card-choosing/outcomes/10points.png",
+                    20.0: "./assets/images/card-choosing/outcomes/20points.png",
+                    50.0: "./assets/images/card-choosing/outcomes/50points.png",
                 },
             },
             /** Coin image filenames */
             pavlovian_images: {
                 type: jspsych.ParameterType.OBJECT,
                 default: {
-                    0.01: "PIT3.png",
-                    1.0: "PIT1.png",
-                    0.5: "PIT2.png",
-                    "-0.01": "PIT4.png",
-                    "-1": "PIT6.png",
-                    "-0.5": "PIT5.png"
+                    1.0: "PIT3.png",
+                    2.0: "PIT2.png",
+                    5.0: "PIT1.png",
+                    10.0: "PIT4.png",
+                    20.0: "PIT5.png",
+                    50.0: "PIT6.png",
                 },
             },
             /** Whether to present feedback (test trials are with no feedback) */
