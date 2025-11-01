@@ -18,7 +18,7 @@ const STIMULI_PATH = './assets/images/card-choosing/stimuli/';
 const preloadAssets = (settings) => {
             // Base coin images
             let images = [
-                "1penny.png", "1pound.png", "50pence.png"
+                "1point.png", "2points.png", "5points.png", "10points.png", "20points.png","50points.png"
             ].map(s => `card-choosing/outcomes/${s}`);
 
             // Add broken coins if valence is "both" or "mixed"
@@ -56,12 +56,12 @@ const preloadAssets = (settings) => {
  */
 function getPavlovianImages(settings) {
     let PIT_imgs = {
-        0.01: "PIT3.png",
-        1.0: "PIT1.png",
-        0.5: "PIT2.png",
-        "-0.01": "PIT4.png",
-        "-1": "PIT6.png",
-        "-0.5": "PIT5.png"
+        1.0: "PIT6.png",
+        2.0: "PIT5.png",
+        5.0: "PIT4.png",
+        10.0: "PIT3.png",
+        20.0: "PIT1.png",
+        50.0: "PIT2.png",
     };
     PIT_imgs = Object.fromEntries(Object.entries(PIT_imgs).map(([k, v]) => [k, "./assets/images/pavlovian-stims/" + settings.session + "/" + v]));
     return PIT_imgs;
