@@ -52,14 +52,14 @@ function preparePILTInstructions(settings) {
                 <p>Some cards are luckier than others. Your goal is to collect as many points as possible.</p>
             	 <p>On each turn of this game, you will see two cards.
                 You have ${window.context === "relmed" ? "four" : "three"} seconds to flip one of the two cards.</p>
-                <p>This will reveal the coin you collect: either 1 point, 2 points, 5 points, 10 points, 20 points or 50 points.</p>
+                <p>This will reveal the coin you collect: either 1 point, 2 points, 4 points, 7 points, 11 points or 16 points.</p>
                 <div style='display: grid;'><table style='width: 200px; grid-column: 2;'><tr>
                 <td><img src='./assets/images/card-choosing/outcomes/1point.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
                 <td><img src='./assets/images/card-choosing/outcomes/2points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/5points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/10points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/20points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/50points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>`,
+                <td><img src='./assets/images/card-choosing/outcomes/4points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/7points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/11points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/16points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>`,
         ];
 
         return pages
@@ -140,7 +140,7 @@ function preparePILTInstructions(settings) {
 
     // Generate randomized practice trial sequences
     let dumbbell_on_right = shuffleArray([true, true, false, true, false, false], settings.session);
-    let reward_magnitude = shuffleArray([10.0, 5.0, 10.0, 5.0, 20.0, 1.0], settings.session + "b");
+    let reward_magnitude = shuffleArray([7.0, 7.0, 7.0, 7.0, 4.0, 4.0], settings.session + "b");
 
     // Shorter practice for non-screening sessions
     if (settings.session !== "screening"){
@@ -165,8 +165,8 @@ function preparePILTInstructions(settings) {
                             n_stimuli: 2,
                             optimal_side: "",
                             // Set feedback values based on card position and session type
-                            feedback_left: e ? (settings.session === "screening" ? 10.0 : 5.0 ) : reward_magnitude[i],
-                            feedback_right: e ? reward_magnitude[i] : (settings.session === "screening" ? 10.0 : 5.0 ),
+                            feedback_left: e ? (settings.session === "screening" ? 7.0 : 4.0 ) : reward_magnitude[i],
+                            feedback_right: e ? reward_magnitude[i] : (settings.session === "screening" ? 7.0 : 4.0 ),
                             optimal_right: e,
                             block: "practice2",
                             trial: i,

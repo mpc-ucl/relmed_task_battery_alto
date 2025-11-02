@@ -18,7 +18,7 @@ const STIMULI_PATH = './assets/images/card-choosing/stimuli/';
 const preloadAssets = (settings) => {
             // Base coin images
             let images = [
-                "1point.png", "2points.png", "5points.png", "10points.png", "20points.png","50points.png"
+                "1point.png", "2points.png", "4points.png", "7points.png", "11points.png","16points.png"
             ].map(s => `card-choosing/outcomes/${s}`);
 
             // Add broken coins if valence is "both" or "mixed"
@@ -56,12 +56,12 @@ const preloadAssets = (settings) => {
  */
 function getPavlovianImages(settings) {
     let PIT_imgs = {
-        1.0: "PIT6.png",
-        2.0: "PIT5.png",
-        5.0: "PIT4.png",
-        10.0: "PIT3.png",
-        20.0: "PIT1.png",
-        50.0: "PIT2.png",
+                    1.0: "PIT3.png",
+                    2.0: "PIT2.png",
+                    4.0: "PIT1.png",
+                    7.0: "PIT4.png",
+                    11.0: "PIT5.png",
+                    16.0: "PIT6.png",
     };
     PIT_imgs = Object.fromEntries(Object.entries(PIT_imgs).map(([k, v]) => [k, "./assets/images/pavlovian-stims/" + settings.session + "/" + v]));
     return PIT_imgs;
@@ -465,7 +465,7 @@ function interBlockStimulus(settings){
         txt +=  n_groups > 1 ? "these cards." : "this card."
         
         if (valence != 0){
-             txt += `<p>Altogether, these coins were ${valence == 1 ? "added to your safe" : "broken in your safe"} on this round:<p>`;
+             txt += `<p>Alltogether, these coins were ${valence == 1 ? "added to your safe" : "broken in your safe"} on this round:<p>`;
         }
        
         
@@ -485,7 +485,8 @@ function interBlockStimulus(settings){
     }, 0);
 
 
-    txt += `<p>Altogether on this round, you've ${earnings >= 0 ? "collected" : "lost"} coins worth £${Math.abs(earnings).toFixed(2)}.</p>`;
+    //txt += `<p>Alltogether on this round, you've ${earnings >= 0 ? "collected" : "lost"} ${Math.abs(earnings).toFixed(2)} points.</p>`;
+    txt += `<p>Alltogether on this round, you've collected ${Math.abs(earnings).toFixed(2)} points.</p>`;
         
     // Add continuation instructions based on number of stimuli
     if (isValidNumber(block)){

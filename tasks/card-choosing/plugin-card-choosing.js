@@ -121,10 +121,10 @@ jsPsychCardChoosing = (function (jspsych) {
                 default: {
                     1.0: "./assets/images/card-choosing/outcomes/1point.png",
                     2.0: "./assets/images/card-choosing/outcomes/2points.png",
-                    5.0: "./assets/images/card-choosing/outcomes/5points.png",
-                    10.0: "./assets/images/card-choosing/outcomes/10points.png",
-                    20.0: "./assets/images/card-choosing/outcomes/20points.png",
-                    50.0: "./assets/images/card-choosing/outcomes/50points.png",
+                    4.0: "./assets/images/card-choosing/outcomes/4points.png",
+                    7.0: "./assets/images/card-choosing/outcomes/7points.png",
+                    11.0: "./assets/images/card-choosing/outcomes/11points.png",
+                    16.0: "./assets/images/card-choosing/outcomes/16points.png",
                 },
             },
             /** Coin image filenames */
@@ -133,10 +133,10 @@ jsPsychCardChoosing = (function (jspsych) {
                 default: {
                     1.0: "PIT3.png",
                     2.0: "PIT2.png",
-                    5.0: "PIT1.png",
-                    10.0: "PIT4.png",
-                    20.0: "PIT5.png",
-                    50.0: "PIT6.png",
+                    4.0: "PIT1.png",
+                    7.0: "PIT4.png",
+                    11.0: "PIT5.png",
+                    16.0: "PIT6.png",
                 },
             },
             /** Whether to present feedback (test trials are with no feedback) */
