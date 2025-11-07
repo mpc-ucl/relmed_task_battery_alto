@@ -28,6 +28,7 @@ export const TaskRegistry = {
     },
     sequences: {
         wk0: '@tasks/card-choosing/sequences/PILT/alto_pilt_wk0.js',
+        wk1: '@tasks/card-choosing/sequences/PILT/alto_pilt_wk1.js',
         wk2: '@tasks/card-choosing/sequences/PILT/alto_pilt_wk2.js',
     },
     requirements: {
@@ -109,6 +110,7 @@ export const TaskRegistry = {
     },
     sequences: {
       wk0: '@tasks/card-choosing/sequences/PILT-test/alto_pilt_test_wk0.js',
+      wk1: '@tasks/card-choosing/sequences/PILT-test/alto_pilt_test_wk1.js',
       wk2: '@tasks/card-choosing/sequences/PILT-test/alto_pilt_test_wk2.js',
     },
     resumptionRules: {
