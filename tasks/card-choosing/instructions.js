@@ -49,28 +49,18 @@ function preparePILTInstructions(settings) {
             let pages = [
             `<p><b>THE CARD CHOOSING GAME</b></p>
                 <p>In this game you will flip cards to collect the coins behind them.</p>
-                <p>Some cards are luckier than others. Your goal is to collect as much game money as possible${window.task == "screening" ? "" : " and avoid losing it"}.</p>
-                ${settings.session !== "screening" ? "<p>At the end of this session, you will be paid a bonus based on the sum of coins you collected.</p>" : ""}`,
-            `<p>On each turn of this game, you will see two cards.
+                <p>Some cards are luckier than others. Your goal is to collect as many points as possible.</p>
+            	 <p>On each turn of this game, you will see two cards.
                 You have ${window.context === "relmed" ? "four" : "three"} seconds to flip one of the two cards.</p>
-                <p>This will reveal the coin you collect: either 1 pound, 50 pence, or 1 penny.</p>
+                <p>This will reveal the coin you collect: either 1 point, 2 points, 4 points, 7 points, 11 points or 16 points.</p>
                 <div style='display: grid;'><table style='width: 200px; grid-column: 2;'><tr>
-                <td><img src='./assets/images/card-choosing/outcomes/1pound.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/50pence.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/1penny.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>`,
+                <td><img src='./assets/images/card-choosing/outcomes/1point.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/2points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/4points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/7points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/11points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/16points.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>`,
         ];
-
-        // Add broken coin instructions for non-screening sessions
-        if (settings.session !== "screening"){
-            pages.push(`<p>When you flip a card, you might see broken coins like these:</p>\
-                <div style='display: grid;'><table style='width: 200px; grid-column: 2;'><tr>
-                <td><img src='./assets/images/card-choosing/outcomes/1poundbroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/50pencebroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='./assets/images/card-choosing/outcomes/1pennybroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>
-                <p>This means you lose that amount of game coins.</p>`);
-            pages.push(`<p>Sometimes, losing coins cannot be avoided. Your goal then is to lose as little money as possible.</p>
-                <p>To cover these losses, you will start the game with £100 in game coins.</p>`)
-        }
 
         return pages
     },
@@ -85,8 +75,8 @@ function preparePILTInstructions(settings) {
         inst.push(
             createPressBothTrial(
                 `<p>You choose a card by pressing the left or the right arrow keys.</p>
-                        <p>Let's try it out now! Flip a card on the next screen.</p>
-                        <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
+                 <p>Let's try it out now! Flip a card on the next screen.</p>
+                 <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
                         <img src='./assets/images/2_finger_keys.jpg' style='width:250px;'></img>
                         `,
                 "pilt_instruction"
@@ -132,15 +122,15 @@ function preparePILTInstructions(settings) {
         pages: [
             `${settings.session === "screening" ? "<p>You found a one pound coin!</p>" : ""}
             <p>Some cards are better than others, and through trial and error, you can learn which ones are best.</p> 
-            <p>However, even the best cards may sometimes give only a penny${window.task == "screening" ? "" : " or occasionally break a one-pound coin"}.</p>`
+            <p>However, even the best card may sometimes give only one point.</p>`
         ],
         show_clickable_nav: true,
         data: {trialphase: "pilt_instruction"}
     },
     createPressBothTrial(
         `<p>Let's practice collecting coins. \
-            On the next screen, choose cards to collect as much money as you can.</p>
-            <p>One of the picture cards has mostly £1 coins behind it, while the other has mostly ${settings.session === "screening" ? "50 pence coins" : "broken £1 coins"} behind it.</p>
+            On the next screen, choose cards to collect as many points as you can.</p>
+            <p>One of the picture cards has mostly 10 points behind it, while the other has mostly 5 points behind it.</p>
             <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
             <img src='./assets/images/2_finger_keys.jpg' style='width:250px;'></img>
         `,
@@ -150,7 +140,7 @@ function preparePILTInstructions(settings) {
 
     // Generate randomized practice trial sequences
     let dumbbell_on_right = shuffleArray([true, true, false, true, false, false], settings.session);
-    let reward_magnitude = shuffleArray([1, 1, 1, 0.5, 1, 1.], settings.session + "b");
+    let reward_magnitude = shuffleArray([7.0, 7.0, 7.0, 7.0, 4.0, 4.0], settings.session + "b");
 
     // Shorter practice for non-screening sessions
     if (settings.session !== "screening"){
@@ -175,8 +165,8 @@ function preparePILTInstructions(settings) {
                             n_stimuli: 2,
                             optimal_side: "",
                             // Set feedback values based on card position and session type
-                            feedback_left: e ? (settings.session === "screening" ? 0.5 : -1. ) : reward_magnitude[i],
-                            feedback_right: e ? reward_magnitude[i] : (settings.session === "screening" ? 0.5 : -1. ),
+                            feedback_left: e ? (settings.session === "screening" ? 7.0 : 4.0 ) : reward_magnitude[i],
+                            feedback_right: e ? reward_magnitude[i] : (settings.session === "screening" ? 7.0 : 4.0 ),
                             optimal_right: e,
                             block: "practice2",
                             trial: i,
@@ -212,25 +202,16 @@ function preparePILTInstructions(settings) {
     // Create instruction comprehension quiz questions
     let quiz_questions = [
         {
-            prompt: `Some cards are better than others, but even the best cards might only give a penny${settings.session !== "screening" ? " or break a £1 coin" : ''}.`,
+            prompt: `Some cards are better than others, but even the best cards might only give one point.`,
             options: ["True", "False"],
             required: true
         },
         {
-            prompt: `My goal is to collect as much game coins as I can${settings.session !== "screening" ? " and avoid losing them" : ''}.`,
+            prompt: `My goal is to collect as many points as I can.`,
             options: ["True", "False"],
             required: true
         },
     ];
-
-    // Add broken coin question for non-screening sessions
-    if (settings.session !== "screening"){
-        quiz_questions.splice(1, 0, {
-            prompt: "If I find a broken coin, that means I lose that amount.",
-            options: ["True", "False"],
-            required: true
-        });
-    }
 
     // Create quiz trial object
     let quiz = [
@@ -260,21 +241,21 @@ function preparePILTInstructions(settings) {
     // Explanation for wrong answers
     let piltQuizExplanation = [
         {
-            prompt: `Some cards are better than others, but even the best cards might only give a penny${settings.session !== "screening" ? " or break a £1 coin" : ''}.`,
-            explanation: "You can learn which cards are better by trial and error. However, cards are not 100% consistent in the coins behind them."
+            prompt: `Some cards are better than others, but even the best cards might only give on point.`,
+            explanation: "You can learn which cards are better by trial and error. However, cards are not 100% consistent in the points behind them."
         },
         {
-            prompt: `My goal is to collect as much game coins as I can${settings.session !== "screening" ? " and avoid losing them" : ''}.`,
-            explanation: "Your goal is to collect as much money as possible. This means learning to chose cards that give you the most money, and avoiding cards that break valuable coins."
+            prompt: `My goal is to collect as many points as I can.`,
+            explanation: "Your goal is to collect as many points as possible. This means learning to chose cards that give you more points, and avoiding cards that give less coins."
         }
     ];
 
-    if (settings.session !== "screening"){
-        piltQuizExplanation.splice(1, 0,{
-            prompt: "If I find a broken coin, that means I lose that amount.",
-            explanation: "If you find a broken coin, you lose that amount of game coins. This means that if you find a broken £1 coin, you lose £1 in the game."
-        });
-    }
+//    if (settings.session !== "screening"){
+//        piltQuizExplanation.splice(1, 0,{
+//            prompt: "If I find a broken coin, that means I lose that amount.",
+//            explanation: "If you find a broken coin, you lose that amount of game coins. This means that if you find a broken £1 coin, you lose £1 in the game."
+//        });
+//    }
     
     
     quiz.push(
@@ -380,9 +361,9 @@ const testInstructions = (task) => {
         type: jsPsychInstructions,
         css_classes: ['instructions'],
         pages: [
-            `<p>You will now begin another round of the card choosing game.</p>
-            <p>In this round, you will not see the coins you collect after each choice, but your coins will still be added to your safe.</p>
-            <p>On each turn, you will choose between two cards you have already seen. Try your best to pick the card that you think is most rewarding.</p>
+           `<p>You will now begin another round of the card choosing game.</p>
+            <p>In this round, you will not see the points after each choice, but your points will still be added to your total.</p>
+            <p>On each turn, you will choose between two cards you have already seen. Try your best to pick the card that you think gives most points.</p>
             <p>This round will take about three minutes to complete.</p>`
         ],
         show_clickable_nav: true,

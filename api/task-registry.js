@@ -20,19 +20,16 @@ export const TaskRegistry = {
     defaultConfig: {
         task_name: "pilt",
         n_choices: 2,
-        valence: "mixed",
+        valence: "reward",
         present_pavlovian: true,
         include_instructions: true,
         sequence: 'wk0',
         session: 'wk0'
     },
     sequences: {
-        screening: '@tasks/card-choosing/sequences/PILT/trial1_screening.js',
-        wk0: '@tasks/card-choosing/sequences/PILT/trial1_wk0.js',
-        wk2: '@tasks/card-choosing/sequences/PILT/trial1_wk2.js',
-        wk4: '@tasks/card-choosing/sequences/PILT/trial1_wk4.js',
-        wk24: '@tasks/card-choosing/sequences/PILT/trial1_wk24.js',
-        wk28: '@tasks/card-choosing/sequences/PILT/trial1_wk28.js',
+        wk0: '@tasks/card-choosing/sequences/PILT/alto_pilt_wk0.js',
+        wk1: '@tasks/card-choosing/sequences/PILT/alto_pilt_wk1.js',
+        wk2: '@tasks/card-choosing/sequences/PILT/alto_pilt_wk2.js',
     },
     requirements: {
       css: ['@tasks/card-choosing/styles.css'],
@@ -112,11 +109,9 @@ export const TaskRegistry = {
       css: ['@tasks/card-choosing/styles.css'],
     },
     sequences: {
-      wk0: '@tasks/card-choosing/sequences/PILT-test/trial1_wk0.js',
-      wk2: '@tasks/card-choosing/sequences/PILT-test/trial1_wk2.js',
-      wk4: '@tasks/card-choosing/sequences/PILT-test/trial1_wk4.js',
-      wk24: '@tasks/card-choosing/sequences/PILT-test/trial1_wk24.js',
-      wk28: '@tasks/card-choosing/sequences/PILT-test/trial1_wk28.js',
+      wk0: '@tasks/card-choosing/sequences/PILT-test/alto_pilt_test_wk0.js',
+      wk1: '@tasks/card-choosing/sequences/PILT-test/alto_pilt_test_wk1.js',
+      wk2: '@tasks/card-choosing/sequences/PILT-test/alto_pilt_test_wk2.js',
     },
     resumptionRules: {
       enabled: true
