@@ -66,12 +66,8 @@ function deepCopySessionState() {
  * @returns {number} Total bonus amount in GBP
  */
 
-<<<<<<< HEAD
-function computeTotalBonus() {
-=======
 function computeTotalBonus(module) {
 
->>>>>>> 9da104e (feat: work on bonus trial)
     // Maximum bonus amounts for each task type
     const max_bonus = {
         "pilt-to-test": 2.45,
@@ -83,17 +79,6 @@ function computeTotalBonus(module) {
     const min_prop_bonus = 0.6; // Minimum proportion of maximum bonus guaranteed
     const min_bonus = max_bonus * min_prop_bonus;
 
-<<<<<<< HEAD
-    const session_state_obj = deepCopySessionState();
-
-    // Initialize the task-specific object if it doesn't exist
-    if (!session_state_obj[window.task]) {
-        session_state_obj[window.task] = {
-            earned: 0,
-            min: 0,
-            max: 0
-        };
-=======
     // Iterate over module elements
     for (const element of module.elements) {
         // Check if element is a task
@@ -113,7 +98,6 @@ function computeTotalBonus(module) {
                 }
             }
         }
->>>>>>> 9da104e (feat: work on bonus trial)
     }
     
     // Get the previous bonus values from session state for this specific task
