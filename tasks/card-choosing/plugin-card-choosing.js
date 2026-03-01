@@ -131,9 +131,9 @@ jsPsychCardChoosing = (function (jspsych) {
             pavlovian_images: {
                 type: jspsych.ParameterType.OBJECT,
                 default: {
-                    1.0: "PIT3.png",
+                    1.0: "PIT1.png",
                     2.0: "PIT2.png",
-                    4.0: "PIT1.png",
+                    4.0: "PIT3.png",
                     7.0: "PIT4.png",
                     11.0: "PIT5.png",
                     16.0: "PIT6.png",
